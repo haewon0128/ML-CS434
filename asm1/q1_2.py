@@ -42,19 +42,19 @@ if __name__ == '__main__':
 	
 	#getting ase of test data
 	f = open(testpath, "r")
-    test = list(csv.reader(f, delimiter=","))
-    test = np.array(test[0:], dtype=np.float)
+    	test = list(csv.reader(f, delimiter=","))
+    	test = np.array(test[0:], dtype=np.float)
 
-    xtest = np.delete(test, 13,axis= 1)
-    ytest = np.delete(test, np.s_[0:13], axis=1)
+    	xtest = np.delete(test, 13,axis= 1)
+    	ytest = np.delete(test, np.s_[0:13], axis=1)
 
 	xtest = np.insert(xtest, 0, 1, axis = 1)
 	
 	pre_test = np.dot(xtest, w)
-    sse_test = np.subtract(ytest, pre_test)
-    n_test = sse_test.shape[0]
-    sse_test = np.dot(sse_test.transpose(), sse_test)
-    ase_test = sse_test/n_test
+    	sse_test = np.subtract(ytest, pre_test)
+    	n_test = sse_test.shape[0]
+	sse_test = np.dot(sse_test.transpose(), sse_test)
+	ase_test = sse_test/n_test
 
 	print("\n")	
 	print ("The Learned Weight Vector: {}".format(round(w[0][0],3))),
